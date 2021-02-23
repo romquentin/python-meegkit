@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>meegkit.ress &#8212; MEEGkit  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="meegkit.sns" href="meegkit.sns.html" />
+    <link rel="prev" title="meegkit.detrend" href="meegkit.detrend.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          MEEGkit</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+                <li><a href="https://github.com/nbara/python-meegkit">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">MEEGkit documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="meegkit.asr.html">meegkit.asr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.cca.html">meegkit.cca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.dss.html">meegkit.dss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.detrend.html">meegkit.detrend</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">meegkit.ress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.sns.html">meegkit.sns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.star.html">meegkit.star</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.tspca.html">meegkit.tspca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meegkit.utils.html">meegkit.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.auditory">Auditory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.covariances">Covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.denoise">Denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.matrix">Matrix manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.sig">Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meegkit.utils.html#module-meegkit.utils.stats">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">MEEGkit examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html">Ringing artifact reduction example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dering.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star.html">Sparse time artifact removal on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_dss.html">DSS example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_asr.html">ASR example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html">Robust detrending examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_detrend.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_star_dss.html">Example demonstrating STAR + DSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_mcca.html">Example multiway canonical correlation analysis (mCCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../auto_examples/example_ress.html">Rhythmic Entrainment Source Separation (RESS) example</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">meegkit.ress</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/modules/meegkit.ress.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="module-meegkit.ress">
+<span id="meegkit-ress"></span><h1>meegkit.ress<a class="headerlink" href="#module-meegkit.ress" title="Permalink to this headline">¶</a></h1>
+<p>Rhythmic Entrainment Source Separation.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#meegkit.ress.RESS" title="meegkit.ress.RESS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RESS</span></code></a>(X, sfreq, peak_freq[, neig_freq, …])</p></td>
+<td><p>Rhythmic entrainment source separation <a class="reference internal" href="#re40631eb5971-1" id="id1">[1]</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="meegkit.ress.RESS">
+<code class="sig-prename descclassname"><span class="pre">meegkit.ress.</span></code><code class="sig-name descname"><span class="pre">RESS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sfreq</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_freq</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neig_freq</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peak_width</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neig_width</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_keep</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_maps</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#meegkit.ress.RESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rhythmic entrainment source separation <a class="reference internal" href="#re40631eb5971-1" id="id2">[1]</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>array</em><em>, </em><em>shape=</em><em>(</em><em>n_samples</em><em>, </em><em>n_chans</em><em>, </em><em>n_trials</em><em>)</em>) – Data to denoise.</p></li>
+<li><p><strong>sfreq</strong> (<em>int</em>) – Sampling frequency.</p></li>
+<li><p><strong>peak_freq</strong> (<em>float</em>) – Peak frequency.</p></li>
+<li><p><strong>neig_freq</strong> (<em>float</em>) – Distance of neighbouring frequencies away from peak frequency, +/- in
+Hz (default=1).</p></li>
+<li><p><strong>peak_width</strong> (<em>float</em>) – FWHM of the peak frequency (default=.5).</p></li>
+<li><p><strong>neig_width</strong> (<em>float</em>) – FWHM of the neighboring frequencies (default=1).</p></li>
+<li><p><strong>n_keep</strong> (<em>int</em>) – Number of components to keep (default=1). -1 keeps all components.</p></li>
+<li><p><strong>return_maps</strong> (<em>bool</em>) – If True, also output mixing (to_ress) and unmixing matrices
+(from_ress), used to transform the data into RESS component space and
+back into sensor space, respectively.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>out</strong> (<em>array, shape=(n_samples, n_keep, n_trials)</em>) – RESS time series.</p></li>
+<li><p><strong>from_ress</strong> (<em>array, shape=(n_components, n_channels)</em>) – Unmixing matrix (projects to sensor space).</p></li>
+<li><p><strong>to_ress</strong> (<em>array, shape=(n_channels, n_components)</em>) – Mixing matrix (projects to component space).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>To project the RESS components back into sensor space, one can proceed as
+follows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># First apply RESS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">meegkit.utils</span> <span class="kn">import</span> <span class="n">matmul3d</span>  <span class="c1"># handles 3D matrix multiplication</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="p">,</span> <span class="n">fromRESS</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ress</span><span class="o">.</span><span class="n">RESS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sfreq</span><span class="p">,</span> <span class="n">peak_freq</span><span class="p">,</span> <span class="n">return_maps</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Then matrix multiply each trial by the unmixing matrix:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">proj</span> <span class="o">=</span> <span class="n">matmul3d</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">fromRESS</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To transform a new observation into RESS component space (e.g. in the
+context of a cross-validation, with separate train/test sets):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Start by applying RESS to the train set:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">out</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">toRESS</span> <span class="o">=</span> <span class="n">ress</span><span class="o">.</span><span class="n">RESS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sfreq</span><span class="p">,</span> <span class="n">peak_freq</span><span class="p">,</span> <span class="n">return_maps</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Then multiply your test data by the toRESS:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_comp</span> <span class="o">=</span> <span class="n">new_data</span> <span class="o">@</span> <span class="n">toRESS</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="re40631eb5971-1"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Cohen, M. X., &amp; Gulbinaite, R. (2017). Rhythmic entrainment source
+separation: Optimizing analyses of neural responses to rhythmic sensory
+stimulation. Neuroimage, 147, 43-56.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nicolas Barascud.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

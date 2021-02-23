@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rhythmic Entrainment Source Separation (RESS) example &#8212; MEEGkit  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-rendered-html.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Example multiway canonical correlation analysis (mCCA)" href="example_mcca.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          MEEGkit</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="index.html">Examples</a></li>
+                <li><a href="https://github.com/nbara/python-meegkit">GitHub</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">MEEGkit documentation <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.asr.html">meegkit.asr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.cca.html">meegkit.cca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.dss.html">meegkit.dss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.detrend.html">meegkit.detrend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.ress.html">meegkit.ress</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.sns.html">meegkit.sns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.star.html">meegkit.star</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.tspca.html">meegkit.tspca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/meegkit.utils.html">meegkit.utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.auditory">Auditory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.covariances">Covariances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.denoise">Denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.matrix">Matrix manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.sig">Signal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/meegkit.utils.html#module-meegkit.utils.stats">Statistics</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">MEEGkit examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="example_dering.html">Ringing artifact reduction example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_dering.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_star.html">Sparse time artifact removal on simulated data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_dss.html">DSS example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_asr.html">ASR example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html">Robust detrending examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html#regression">Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_detrend.html#detrending">Detrending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_star_dss.html">Example demonstrating STAR + DSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="example_mcca.html">Example multiway canonical correlation analysis (mCCA)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Rhythmic Entrainment Source Separation (RESS) example</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Rhythmic Entrainment Source Separation (RESS) example</a><ul>
+<li><a class="reference internal" href="#create-synthetic-data">Create synthetic data</a></li>
+<li><a class="reference internal" href="#enhance-oscillatory-activity-using-ress">Enhance oscillatory activity using RESS</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="../_sources/auto_examples/example_ress.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-example-ress-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="rhythmic-entrainment-source-separation-ress-example">
+<span id="sphx-glr-auto-examples-example-ress-py"></span><h1>Rhythmic Entrainment Source Separation (RESS) example<a class="headerlink" href="#rhythmic-entrainment-source-separation-ress-example" title="Permalink to this headline">¶</a></h1>
+<p>Find the linear combinations of multichannel data that maximize the
+signal-to-noise ratio of the narrow-band steady-state response in the frequency
+domain.</p>
+<p>Uses <cite>meegkit.RESS()</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">ss</span>
+<span class="kn">from</span> <span class="nn">meegkit</span> <span class="kn">import</span> <span class="n">ress</span>
+<span class="kn">from</span> <span class="nn">meegkit.utils</span> <span class="kn">import</span> <span class="n">fold</span><span class="p">,</span> <span class="n">matmul3d</span><span class="p">,</span> <span class="n">rms</span><span class="p">,</span> <span class="n">snr_spectrum</span><span class="p">,</span> <span class="n">unfold</span>
+
+<span class="c1"># import config</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="create-synthetic-data">
+<h2>Create synthetic data<a class="headerlink" href="#create-synthetic-data" title="Permalink to this headline">¶</a></h2>
+<p>Create synthetic data containing a single oscillatory component at 12 hz.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_times</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">n_chans</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_trials</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">sfreq</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">noise_dim</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">SNR</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># source</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">target</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_times</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">/</span> <span class="n">sfreq</span><span class="p">)[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">source</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_chans</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">))</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_times</span><span class="p">,</span> <span class="n">n_chans</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">))</span>
+<span class="n">signal</span><span class="p">[</span><span class="n">t0</span><span class="p">:,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="c1"># noise</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+    <span class="n">unfold</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="n">noise_dim</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">)),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">noise_dim</span><span class="p">,</span> <span class="n">n_chans</span><span class="p">))</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">fold</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">n_times</span><span class="p">)</span>
+
+<span class="c1"># mix signal and noise</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">SNR</span> <span class="o">*</span> <span class="n">signal</span> <span class="o">/</span> <span class="n">rms</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">noise</span> <span class="o">/</span> <span class="n">rms</span><span class="p">(</span><span class="n">noise</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">signal</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="c1"># Plot</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">noise</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;noise&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mixture&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="example ress" class="sphx-glr-single-img" src="../_images/sphx_glr_example_ress_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f7582f71e20&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="enhance-oscillatory-activity-using-ress">
+<h2>Enhance oscillatory activity using RESS<a class="headerlink" href="#enhance-oscillatory-activity-using-ress" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply RESS</span>
+<span class="n">out</span><span class="p">,</span> <span class="n">maps</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ress</span><span class="o">.</span><span class="n">RESS</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sfreq</span><span class="o">=</span><span class="n">sfreq</span><span class="p">,</span> <span class="n">peak_freq</span><span class="o">=</span><span class="n">target</span><span class="p">,</span> <span class="n">return_maps</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Compute PSD</span>
+<span class="n">nfft</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sfreq</span> <span class="o">/</span> <span class="n">nfft</span>  <span class="c1"># frequency resolution</span>
+<span class="n">bins</span><span class="p">,</span> <span class="n">psd</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sfreq</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;hamming&quot;</span><span class="p">,</span> <span class="n">nperseg</span><span class="o">=</span><span class="n">nfft</span><span class="p">,</span>
+                     <span class="n">noverlap</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">psd</span> <span class="o">=</span> <span class="n">psd</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># average over trials</span>
+<span class="n">snr</span> <span class="o">=</span> <span class="n">snr_spectrum</span><span class="p">(</span><span class="n">psd</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">skipbins</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_avg</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">snr</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SNR&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="n">bins</span> <span class="o">==</span> <span class="n">target</span><span class="p">],</span> <span class="n">snr</span><span class="p">[</span><span class="n">bins</span> <span class="o">==</span> <span class="n">target</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Target SNR&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;SNR (a.u.)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+<img alt="example ress" class="sphx-glr-single-img" src="../_images/sphx_glr_example_ress_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(0.0, 40.0)
+</pre></div>
+</div>
+<p>Project components back into sensor space to see the effects of RESS on the
+average SSVEP.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">matmul3d</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">maps</span><span class="p">)</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_chans</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;col&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_chans</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">proj</span><span class="p">[:,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=.</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ch</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">n_chans</span><span class="p">:</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Trial average (before)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Trial average (after)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="Trial average (before), Trial average (after)" class="sphx-glr-single-img" src="../_images/sphx_glr_example_ress_003.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.036 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-example-ress-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/7d9e2cffe08623f1de29dcc3c5638b14/example_ress.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">example_ress.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/55fbbf73209011b3e5a3fed72c42bd04/example_ress.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">example_ress.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Nicolas Barascud.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
